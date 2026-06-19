@@ -1,0 +1,25 @@
+model: HBI-Net
+task: directional_algal_bloom_change_detection
+
+input:
+  t1_shape: [10, 256, 256]
+  t2_shape: [10, 256, 256]
+
+components:
+  backbone:
+    type: shared_Swin_T
+  interaction:
+    type: HBI_Block
+  fusion:
+    type: signed_difference_fusion_neck
+  decoder:
+    type: SC_Decoder
+
+output:
+  classes:
+    - unchanged
+    - bloom_appearance
+    - bloom_disappearance
+
+note: >
+  This file summarizes the architecture organization used by HBI-Net.

@@ -1,0 +1,33 @@
+dataset: ABCD
+task: directional_algal_bloom_change_detection
+
+status: template
+
+input:
+  sensor: Sentinel-2 MSI Level-2A
+  patch_size: [256, 256]
+  bands:
+    - B2
+    - B3
+    - B4
+    - B5
+    - B6
+    - B7
+    - B8
+    - B8A
+    - B11
+    - B12
+
+classes:
+  0: unchanged
+  1: bloom_appearance
+  2: bloom_disappearance
+
+paths:
+  root: "<ABCD dataset path>"
+  train: "<train split path>"
+  val: "<validation split path>"
+  test: "<test split path>"
+
+note: >
+  This file documents the dataset interface used by HBI-Net.
