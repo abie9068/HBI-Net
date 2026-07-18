@@ -1,4 +1,24 @@
-torch
-mmengine
-mmsegmentation
-open-cd
+# HBI-Net dependencies (exact versions verified on a single RTX 4090,
+# CUDA 12.1, Python 3.10). See README.md for the full install walk-through.
+#
+# PyTorch is installed separately (matched to your CUDA), e.g.:
+#   pip install torch==2.4.1 torchvision==0.19.1 \
+#       --index-url https://download.pytorch.org/whl/cu121
+#
+# mmcv must be installed from the OpenMMLab wheel index that matches your
+# torch/CUDA build, e.g.:
+#   pip install mmcv==2.2.0 \
+#       -f https://download.openmmlab.com/mmcv/dist/cu121/torch2.4.0/index.html
+
+torch==2.4.1
+torchvision==0.19.1
+numpy<2.1
+mmengine==0.10.7
+mmcv==2.2.0
+mmsegmentation==1.2.2
+mmdet==3.3.0
+ftfy
+regex
+# Open-CD is installed from source (editable). See README.md:
+#   git clone https://github.com/likyoo/open-cd.git
+#   pip install -e open-cd
